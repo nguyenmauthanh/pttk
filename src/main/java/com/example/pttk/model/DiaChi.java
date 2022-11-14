@@ -7,6 +7,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "tblDiaChi")
+@Data
 public class DiaChi {
 
     @Id

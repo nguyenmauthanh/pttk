@@ -1,11 +1,13 @@
 package com.example.pttk.model;
 
 import lombok.Cleanup;
+import lombok.Data;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "tblMathang")
+@Data
 public class MatHang {
 
     @Id

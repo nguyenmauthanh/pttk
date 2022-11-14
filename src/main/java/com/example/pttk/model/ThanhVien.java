@@ -3,17 +3,17 @@ package com.example.pttk.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "tblThanhVien")
-@Inheritance(strategy= InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "vi_tri", discriminatorType = DiscriminatorType.STRING)
+@Inheritance(strategy= InheritanceType.TABLE_PER_CLASS)
 @Data
-public class ThanhVien {
+public class ThanhVien implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Integer id;
 

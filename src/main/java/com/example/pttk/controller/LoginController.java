@@ -21,12 +21,12 @@ public class LoginController {
     }
 
     @PostMapping("/")
-    public String postLogin(@ModelAttribute ThanhVienDTO thanhVienDTO){
+    public String login(@ModelAttribute ThanhVienDTO thanhVienDTO){
         ThanhVien t = thanhVienDAO.findByTenDangNhap(thanhVienDTO.getTenDangNhap());
         if(t == null) return "404 user not found";
         if(!thanhVienDTO.getMatKhau().equals(t.getMatKhau())){
-            return "Sai tên đăng nhập";
+            return "Sai mật khẩu";
         }
-        return "nhanvienkhoview";
+        return "NhanVienKhoView";
     }
 }

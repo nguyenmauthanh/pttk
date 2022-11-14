@@ -7,6 +7,7 @@ import java.beans.ConstructorProperties;
 
 @Entity
 @Table(name = "tblNhacungcap")
+@Data
 public class NhaCungCap {
 
     @Id
