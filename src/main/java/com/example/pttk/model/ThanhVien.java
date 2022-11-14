@@ -8,7 +8,7 @@ import java.util.Date;
 @Entity
 @Table(name = "tblThanhVien")
 @Inheritance(strategy= InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "dtype", discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorColumn(name = "vi_tri", discriminatorType = DiscriminatorType.STRING)
 @Data
 public class ThanhVien {
 
