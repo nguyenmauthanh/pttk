@@ -4,6 +4,7 @@ import lombok.Cleanup;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "tblMathang")
@@ -29,6 +30,9 @@ public class MatHang {
 
     @Column(name = "giatien")
     private int giaTien;
+
+    @OneToMany(mappedBy = "matHang")
+    private Set<HoaDonMatHang> hoaDonMatHangs;
 
     public MatHang(){
 
