@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thông Tin Nhà Cung Cấp</title>
+</head>
+<body>
+<h3>Tìm kiếm nhà cung cấp</h3>
+<form action="" method="get" >
+    <div class="input-group">
+        <span class="input-group-text" id="inputGroup-sizing-default">Tên:</span>
+        <input class="form-control" type="text" name="tuKhoa" placeholder="ten nha cung cap" />
+        <br />
+        <button class="btn btn-outline-secondary" type="submit">Tìm Kiếm</button>
+        <br />
+    </div>
+</form>
+<table class="table">
+    <tr>
+        <th scope="col">STT</th>
+        <th scope="col">Tên</th>
+        <th scope="col">Địa chỉ</th>
+        <th scope="col">Mã</th>
+        <th scope="col">Số điện thoại</th>
+    </tr>
+    <th:block th:each="item : ${dsNhaCungCap}">
+        <tr>
+            <td scope="row" th:utext="${item.id}"></td>
+            <td th:utext="${item.tenNhaCungCap}" ></td>
+            <td th:utext="${item.diaChi}"></td>
+            <td th:utext="${item.maNhaCungCap}"></td>
+            <td th:utext="${item.soDienThoai}"></td>
+            <td><a th:href="@{/quanLyThongTinNCC/sua/{id}(id=${item.id})}" type="button">Sửa</a></td>
+            <td><a th:href="@{/quanLyThongTinNCC/xoa/{id}(id=${item.id})}" type="button">Xóa</a></td>
+        </tr>
+    </th:block>
+    </table>
+</body>
+</html>

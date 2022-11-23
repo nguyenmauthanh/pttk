@@ -2,6 +2,7 @@ package com.example.pttk.controller;
 
 import com.example.pttk.dto.ThanhVienDTO;
 import com.example.pttk.model.ThanhVien;
+import com.example.pttk.repository.NhanVienRepository;
 import com.example.pttk.repository.ThanhVienDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,9 @@ public class LoginController {
     @Autowired
     private ThanhVienDAO thanhVienDAO;
 
+    @Autowired
+    private NhanVienRepository nhanVienRepository;
+
     @GetMapping("/")
     public String getLogin() {
         return "login";
@@ -27,6 +31,13 @@ public class LoginController {
         if(!thanhVienDTO.getMatKhau().equals(t.getMatKhau())){
             return "Sai mật khẩu";
         }
-        return "NhanVienKhoView";
+        if(nhanVienRepository.findById(t.getId()).isPresent()){
+            if(nhanVienRepository.findById(t.getId()).get().getViTri().equalsIgnoreCase("NVK")){
+                return "NhanVienKhoView";
+            }else {
+                return "NhanVienQuanLyView";
+            }
+        }
+        return "login";
     }
 }

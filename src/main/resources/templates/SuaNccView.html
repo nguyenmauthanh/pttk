@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sửa Nhà Cung Cấp</title>
+</head>
+<body>
+<form action="" method="post" >
+    <h3 >Sửa Nhà Cung Cấp</h3>
+    <div>
+        <span>Tên:</span>
+        <input type="text"name="tenNhaCungCap" th:value="${nhaCungCap.tenNhaCungCap}" placeholder="Ten Nha Cung Cap">
+    </div>
+    <br>
+    <div>
+        <span>Địa chỉ: </span>
+        <input type="text" name="diaChi" th:value="${nhaCungCap.diaChi}" placeholder="Dia Chi">
+    </div>
+    <br>
+    <div>
+        <span>Mã: </span>
+        <input type="text" name="maNhaCungCap" th:value="${nhaCungCap.maNhaCungCap}" placeholder="Ma Nha Cung Cap">
+    </div>
+    <br>
+    <div>
+        <span>Số điện thoại: </span>
+        <input type="text" name="soDienThoai" th:value="${nhaCungCap.soDienThoai}" placeholder="So Dien Thoai">
+    </div>
+    <br>
+    <div>
+        <span>Mô tả: </span>
+        <textarea name="moTa" th:text="${nhaCungCap.moTa}" ></textarea>
+        <br>
+    </div>
+    <button type="submit">Xác Nhận</button>
+
+</form>
+</body>
+</html>

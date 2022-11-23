@@ -1,13 +1,17 @@
 package com.example.pttk.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Set;
 
 @Entity
 @Table(name = "tblDiaChi")
 @Data
+@ToString(exclude="thanhViens")
 public class DiaChi {
 
     @Id
@@ -34,10 +38,8 @@ public class DiaChi {
     private String tinhThanh;
 
     @OneToMany(mappedBy = "diaChi")
-    private Set<ThanhVien> thanhViens;
+    private Collection<ThanhVien> thanhViens;
 
-    @OneToOne(mappedBy = "diaChi")
-    private NhaCungCap nhaCungCap;
 
     public DiaChi() {
     }

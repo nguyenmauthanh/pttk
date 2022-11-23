@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.beans.ConstructorProperties;
+import java.util.Collection;
 import java.util.Set;
 
 @Entity
@@ -28,12 +29,10 @@ public class NhaCungCap {
     @Column(name = "mota")
     private String moTa;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "tblDiaChiId", referencedColumnName = "id")
-    private DiaChi diaChi;
+    private String diaChi;
 
     @OneToMany(mappedBy = "nhaCungCap")
-    private Set<HoaDonNhapHang> hoaDonNhapHangs;
+    private Collection<HoaDonNhapHang> hoaDonNhapHangs;
 
     public NhaCungCap() {
     }
